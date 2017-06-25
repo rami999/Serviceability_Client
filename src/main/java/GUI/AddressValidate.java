@@ -51,7 +51,7 @@ public class AddressValidate extends JFrame {
         jFrame.setVisible(true);
     }
     private boolean checkAddressValidation(String latitude,String longitude) throws IOException {
-        System.out.println(serverAddress);
+        //System.out.println(serverAddress);
         String url = serverAddress+"/api/address/validate";
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -71,7 +71,7 @@ public class AddressValidate extends JFrame {
         wr.flush();
         wr.close();
         int responseCode = con.getResponseCode();
-        System.out.println(responseCode);
+        //System.out.println(responseCode);
         return (responseCode==201);
     }
 

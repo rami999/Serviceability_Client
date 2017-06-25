@@ -29,6 +29,7 @@ public class ServiceSpecification {
     final private String longitude;
     private String response;
     private String responseId;
+    private String price;
 
     public ServiceSpecification(String serverAddress,String latitude,String longitude) {
         this.latitude=latitude;
@@ -61,7 +62,7 @@ public class ServiceSpecification {
 
     private void callOrderForm() {
         JFrame jFrame=new JFrame("ServiceSpecification");
-        jFrame.setContentPane(new Order(response,responseId,serverAddress).JPanel);
+        jFrame.setContentPane(new Order(response,responseId,serverAddress,price).JPanel);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.pack();
         jFrame.setVisible(true);
@@ -106,10 +107,8 @@ public class ServiceSpecification {
         wr.flush();
         wr.close();
         this.responseId=con.getHeaderField("responseId");
-        String bakasha=con.getResponseMessage();
-        System.out.println(bakasha);
+        this.price=con.getHeaderField("price");
         int responseCode = con.getResponseCode();
-        System.out.println(responseCode);
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
         String output;
@@ -119,7 +118,6 @@ public class ServiceSpecification {
             response.append(output);
         }
         in.close();
-        System.out.println(response.toString());
         this.response=response.toString();
         return responseCode==201;
     }

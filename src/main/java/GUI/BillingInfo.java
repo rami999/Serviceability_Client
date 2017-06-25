@@ -71,7 +71,7 @@ public class BillingInfo {
 //        String bakasha=con.getResponseMessage();
 //        System.out.println(bakasha);
         int responseCode = con.getResponseCode();
-        System.out.println(responseCode);
+        //System.out.println(responseCode);
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
         String output;
@@ -81,8 +81,8 @@ public class BillingInfo {
             response.append(output);
         }
         in.close();
-        System.out.println(response.toString());
-        System.out.println(con.getResponseMessage());
+        //System.out.println(response.toString());
+        //System.out.println(con.getResponseMessage());
         return con.getHeaderField("orderId");
     }
 }
