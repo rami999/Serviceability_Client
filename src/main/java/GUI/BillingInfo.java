@@ -1,6 +1,7 @@
 package GUI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -21,11 +22,29 @@ public class BillingInfo {
     private JTextField contactName;
     private JButton submitButton;
     private JComboBox pricingMethod;
+    private JLabel fillLabel;
+    private JLabel contactLabel;
+    private JLabel addresLabel;
+    private JLabel emailLabel;
+    private JLabel teleLabel;
+    private JLabel contactNameLabel;
+    private JLabel latLabel;
+    private JLabel langLabel;
+    private JLabel priceLabel;
     private String serverAddress;
 
     public BillingInfo(final String responseId, String serverAddress) {
         this.responseId=responseId;
         this.serverAddress=serverAddress;
+        fillLabel.setFont(new Font("Serif", Font.BOLD,26));
+        contactLabel.setFont(new Font("Serif", Font.BOLD,20));
+        addresLabel.setFont(new Font("Serif", Font.BOLD,20));
+        emailLabel.setFont(new Font("Serif", Font.BOLD,16));
+        teleLabel.setFont(new Font("Serif", Font.BOLD,16));
+        contactNameLabel.setFont(new Font("Serif", Font.BOLD,16));
+        latLabel.setFont(new Font("Serif", Font.BOLD,16));
+        langLabel.setFont(new Font("Serif", Font.BOLD,16));
+        priceLabel.setFont(new Font("Serif", Font.BOLD,16));
         submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 if(email.getText().length()==0||telephone.getText().length()==0||contactName.getText().length()==0||

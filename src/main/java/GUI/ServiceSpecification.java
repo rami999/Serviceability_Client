@@ -61,8 +61,9 @@ public class ServiceSpecification {
     }
 
     private void callOrderForm() {
-        JFrame jFrame=new JFrame("ServiceSpecification");
+        JFrame jFrame=new JFrame("Order Details");
         jFrame.setContentPane(new Order(response,responseId,serverAddress,price).JPanel);
+        jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.pack();
         jFrame.setVisible(true);

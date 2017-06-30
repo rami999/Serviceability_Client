@@ -1,6 +1,7 @@
 package GUI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -12,10 +13,16 @@ public class AddressValidate extends JFrame {
     private JTextField latitude;
     private JTextField longitude;
     private JButton submit;
+    private JLabel label1;
+    private JLabel label2;
+    private JLabel label3;
     private String serverAddress;
 
     public AddressValidate(String serverAddress){
         super("Address Validation");
+        label3.setFont(new Font("Serif",Font.BOLD,26));
+        label1.setFont(new Font("Serif",Font.BOLD,18));
+        label2.setFont(new Font("Serif",Font.BOLD,18));
         this.serverAddress=serverAddress;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -44,8 +51,9 @@ public class AddressValidate extends JFrame {
 
     }
     private void callServiceForm(){
-        JFrame jFrame=new JFrame("ServiceSpecification");
+        JFrame jFrame=new JFrame("Service Details");
         jFrame.setContentPane(new ServiceSpecification(serverAddress,latitude.getText(),longitude.getText()).JPanel);
+        jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.pack();
         jFrame.setVisible(true);

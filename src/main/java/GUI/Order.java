@@ -1,6 +1,9 @@
 package GUI;
 
+import org.json.JSONObject;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +21,7 @@ public class Order {
         textPane1.setText(data);
         this.responseId=responseId;
         this.serverAddress=serverAddress;
+        this.priceLabel.setFont(new Font("Serif",Font.BOLD,20));
         this.priceLabel.setText("The price of the requested service is:"+price);
         orderNowButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
@@ -27,8 +31,9 @@ public class Order {
 
     }
     private void callBillingInfoForm() {
-        JFrame jFrame=new JFrame("ServiceSpecification");
+        JFrame jFrame=new JFrame("Billing Info");
         jFrame.setContentPane(new BillingInfo(responseId,serverAddress).JPanel);
+        jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.pack();
         jFrame.setVisible(true);

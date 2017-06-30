@@ -1,6 +1,8 @@
 package GUI;
 
 import javax.swing.*;
+import javax.swing.plaf.LabelUI;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -13,11 +15,12 @@ public class ServerAddress extends JFrame  {
     private JTextField serverAddress;
     private JButton submitAddress;
     protected javax.swing.JPanel JPanel;
+    private JLabel label;
 
     public ServerAddress(){
-        super("GUI.ServerAddress");
+        super("Server Address");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        label.setFont(new Font("Serif",Font.BOLD,22));
         submitAddress.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 if(serverAddress.getText().length()==0){
@@ -25,7 +28,8 @@ public class ServerAddress extends JFrame  {
                 }
                 else {
                     if (checkServerAddress(serverAddress.getText())) {
-                        JFrame jFrame = new JFrame("ServiceSpecification");
+                        JFrame jFrame = new JFrame("Address Validation");
+                        jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         jFrame.setContentPane(new AddressValidate(serverAddress.getText()).JPanel);
                         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         jFrame.pack();
@@ -59,5 +63,6 @@ public class ServerAddress extends JFrame  {
         }
         return false;
     }
+
 }
 
